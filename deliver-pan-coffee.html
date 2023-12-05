@@ -1,327 +1,532 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
+  <head>
+    <title>Pan & Coffee</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Meta Descripción -->
+    <meta
+      name="Pan & Coffee"
+      content="We want you to experience the love and taste of homemade meals and drinks, made with sustainable, natural and organic products."
+    />
+    <meta
+      name="description"
+      content="Pan & Coffee is a bakery and coffee shop born on 2020 specialized in Mexican breads, gourmet baking and sustainable cuisine."
+    />
+    <meta
+      name="keywords"
+      content="breads bakery, bakery, hot breads, coffee, coffee shops, best coffee, mexican cuisine, bakery near me, coffee near me, coffee shops near me, cuisine"
+    />
+    <!-- End Meta Descripción -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto+Slab:400,700"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDJ8ZKHD7S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .ie-panel {
+        display: none;
+        background: #212121;
+        padding: 10px 0;
+        box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+        clear: both;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
 
-    gtag('config', 'G-LDJ8ZKHD7S');
-  </script>
-  <title>Pan & Coffee</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Meta Descripción -->
-  <meta name="Pan & Coffee"
-    content="We want you to experience the love and taste of homemade meals and drinks, made with sustainable, natural and organic products.">
-  <meta name="description"
-    content="Pan & Coffee is a bakery and coffee shop born on 2020 specialized in Mexican breads, gourmet baking and sustainable cuisine.">
-  <meta name="keywords"
-    content="breads bakery, bakery, hot breads, coffee, coffee shops, best coffee, mexican cuisine, bakery near me, coffee near me, coffee shops near me, cuisine" />
-  <!-- End Meta Descripción -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css"
-    href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto+Slab:400,700">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/style.css">
+      html.ie-10 .ie-panel,
+      html.lt-ie-10 .ie-panel {
+        display: block;
+      }
+    </style>
+    <style>
+      body {
+        font-family: Graphik, Helvetica, sans-serif;
+      }
+      .my-cardbody {
+        box-shadow: 8px 4px 27px -5px rgba(0, 0, 0, 0.56);
+        -webkit-box-shadow: 10px 8px 24px -6px rgba(0, 0, 0, 0.56);
+        -moz-box-shadow: 8px 4px 27px -5px rgba(0, 0, 0, 0.56);
+        border-radius: 5px;
+      }
+      .my-cardtitle {
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+      }
+      .my-cardprice {
+        font-size: 20px;
+        font-weight: 300;
+        color: black;
+      }
+    </style>
+  </head>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-  <style>
-    .ie-panel {
-      display: none;
-      background: #212121;
-      padding: 10px 0;
-      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
-      clear: both;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    html.ie-10 .ie-panel,
-    html.lt-ie-10 .ie-panel {
-      display: block;
-    }
-  </style>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap');
-  </style>
-</head>
-
-<body>
-  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-        src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
-        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-  </div>
-  <div class="page-loader preloader">
-    <div class="page-loader-body">
-      <div class="cssload-thecube">
-        <div class="cssload-cube cssload-c1"></div>
-        <div class="cssload-cube cssload-c2"></div>
-        <div class="cssload-cube cssload-c4"></div>
-        <div class="cssload-cube cssload-c3"></div>
+  <body>
+    <div class="ie-panel">
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/"
+        ><img
+          src="images/ie8-panel/warning_bar_0000_us.jpg"
+          height="42"
+          width="820"
+          alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
+      /></a>
+    </div>
+    <div class="page-loader preloader">
+      <div class="page-loader-body">
+        <div class="cssload-thecube">
+          <div class="cssload-cube cssload-c1"></div>
+          <div class="cssload-cube cssload-c2"></div>
+          <div class="cssload-cube cssload-c4"></div>
+          <div class="cssload-cube cssload-c3"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="page">
-    <header class="page-header page-header-absolute page-header-dark">
-      <div class="rd-navbar-wrap">
-        <nav
-          class="rd-navbar rd-navbar-default rd-navbar-wide rd-navbar-minimal rd-navbar-minimal-dark rd-navbar-classic-dark"
-          data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
-          data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-          data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
-          data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
-          data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-          <div class="rd-navbar-inner">
-            <div class="rd-navbar-panel">
-              <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+    <div class="page">
+      <header class="page-header page-header-absolute page-header-dark">
+        <div class="rd-navbar-wrap">
+          <nav
+            class="rd-navbar rd-navbar-default rd-navbar-wide rd-navbar-minimal rd-navbar-minimal-dark rd-navbar-classic-dark"
+            data-layout="rd-navbar-fixed"
+            data-sm-layout="rd-navbar-fixed"
+            data-md-layout="rd-navbar-fixed"
+            data-md-device-layout="rd-navbar-fixed"
+            data-lg-layout="rd-navbar-static"
+            data-lg-device-layout="rd-navbar-static"
+            data-xl-layout="rd-navbar-static"
+            data-xl-device-layout="rd-navbar-static"
+            data-md-stick-up-offset="1px"
+            data-lg-stick-up-offset="1px"
+            data-lg-stick-up="true"
+            data-xl-stick-up="true"
+            data-xxl-stick-up="true"
+          >
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-panel">
+                <button
+                  class="rd-navbar-toggle"
+                  data-rd-navbar-toggle=".rd-navbar-nav-wrap"
+                >
+                  <span></span>
+                </button>
+              </div>
+              <div class="rd-navbar-minimal-inner">
+                <div class="rd-navbar-minimal-left">
+                  <div class="rd-navbar-nav-wrap">
+                    <div class="rd-navbar-nav-scroll-holder">
+                      <!--Brand-->
+                      <a class="brand" href="index.html"
+                        ><img
+                          class="brand-logo-dark"
+                          src="assets/img/pan-and-coffee-side-menu.png"
+                          alt="Pan and Coffee"
+                          width="75"
+                          height="75" /><img
+                          class="brand-logo-light"
+                          src="assets/img/pan-and-coffee-brand.png"
+                          alt="Pan and Coffee"
+                          width="75"
+                          height="75" /><img
+                          class="brand-logo-white"
+                          src="assets/img/pan-and-coffee-brand.png"
+                          alt=""
+                          width="145"
+                          height="145"
+                      /></a>
+                      <ul class="rd-navbar-nav">
+                        <!-- Menu Home -->
+                        <li class="rd-nav-item">
+                          <a class="rd-nav-link" href="index.html">Home</a>
+                        </li>
+                        <!--End Menu Home-->
+                        <!-- Menu Menu -->
+                        <li class="rd-nav-item">
+                          <a
+                            class="rd-nav-link"
+                            href="https://www.panandcoffeeusa.com/menu-pan-and-coffee.pdf"
+                            target="_blank"
+                            >Menu</a
+                          >
+                        </li>
+                        <!-- End Menu Menu -->
+                        <!-- Menu Gallery -->
+                        <li class="rd-nav-item">
+                          <a class="rd-nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <!-- End Menu Gallery -->
+                        <!-- Menu Vacancies -->
+                        <!--<li class="rd-nav-item"><a class="rd-nav-link" href="vacancies.html">Vacancies</a></li>-->
+                        <!-- End Menu Vacancies -->
+                        <!-- Menu Contact -->
+                        <li class="rd-nav-item">
+                          <a class="rd-nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="deliver-pan-coffee.html"
+                            ><i
+                              class="fas fa-shopping-cart mr-2"
+                              style="color: #ffffff"
+                            ></i
+                            >Order Online</a
+                          >
+                        </li>
+                        <!-- End Menu Contact -->
+                        <li>
+                          <a
+                            class="icon icon-sm-mod-20 fa fa-instagram"
+                            href="https://www.instagram.com/panandcoffeeusa"
+                            target="_blank"
+                            style="margin-top: -5px"
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-minimal-right"></div>
+              </div>
             </div>
-            <div class="rd-navbar-minimal-inner">
-              <div class="rd-navbar-minimal-left">
-                <div class="rd-navbar-nav-wrap">
-                  <div class="rd-navbar-nav-scroll-holder">
-                    <!--Brand-->
-                    <a class="brand" href="index.html"><img class="brand-logo-dark"
-                        src="assets/img/pan-and-coffee-side-menu.png" alt="Pan and Coffee" width="75" height="75" /><img
-                        class="brand-logo-light" src="assets/img/pan-and-coffee-brand.png" alt="Pan and Coffee"
-                        width="75" height="75" /><img class="brand-logo-white" src="assets/img/pan-and-coffee-brand.png"
-                        alt="" width="145" height="145" /></a>
-                    <ul class="rd-navbar-nav">
-                      <!-- Menu Home -->
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a></li>
-                      <!--End Menu Home-->
-                      <!-- Menu Menu -->
-                      <li class="rd-nav-item"><a class="rd-nav-link"
-                          href="https://www.panandcoffeeusa.com/menu-pan-and-coffee.pdf" target="_blank">Menu</a>
-                      </li>
-                      <!-- End Menu Menu -->
-                      <!-- Menu Gallery -->
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="gallery.html">Gallery</a></li>
-                      <!-- End Menu Gallery -->
-                      <!-- Menu Vacancies -->
-                      <!--<li class="rd-nav-item"><a class="rd-nav-link" href="vacancies.html">Vacancies</a></li>-->
-                      <!-- End Menu Vacancies -->
-                      <!-- Menu Contact -->
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="contact.html">Contact</a></li>
-                      <li class="nav-item"><a class="nav-link"
-                          href="https://www.clover.com/online-ordering/pan--coffee-san-antonio" target="_blank"><i
-                            class="fas fa-shopping-cart mr-2" style="color:#ffffff"></i>Order Online</a></li>
-                      <li class="nav-item active"><a class="nav-link" href="deliver-pan-coffee.html">Deliver Pan&coffee</a></li>
-                      <!-- End Menu Contact -->
-                      <li><a class="icon icon-sm-mod-20 fa fa-instagram "
-                          href="https://www.instagram.com/panandcoffeeusa" target="_blank" style="margin-top: -5px"></a>
-                      </li>
-                    </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- Section 0 -->
+      <section
+        class="section-animate animate-content bg-secondary-3"
+        id="section-0"
+        style="padding-top: 90px; padding-bottom: 10px"
+      >
+        <div class="section-animate-wrapper">
+          <div class="container my-2">
+            <h4 class="my-3">Category</h4>
+            <hr>
+            <div class="row">
+              <!-- start card -->
+              <div class="col-md-4 my-4">
+                <div class="my-cardbody">
+                  <img
+                    src="./item_images/Chai Palmier.jpg"
+                    alt=""
+                    srcset=""
+                    style="height: 200px; width: 100%"
+                  />
+                  <div class="d-flex justify-content-between p-3">
+                    <p class="my-cardtitle p-0 m-0">Special title treatment</p>
+                    <h5 class="my-cardprice p-0 m-0">$50</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-0">
+                      <div class="quantity p-0 m-0">
+                        <a href="#" class="quantity__minus"><span>-</span></a>
+                        <input
+                          name="quantity"
+                          type="text"
+                          class="quantity__input"
+                          value="1"
+                        />
+                        <a href="#" class="quantity__plus"><span>+</span></a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                      <button class="btn btn-success btn-block">
+                        Add to cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="rd-navbar-minimal-right">
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- Section 0 -->
-    <section class="section-animate animate-content bg-secondary-3" id="section-0"
-      style="padding-top: 90px; padding-bottom: 10px;">
-      <div class="section-animate-wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="offset-3 col-md-6 box-offer-white p-4 rounded" style="height: auto;">
-              <!-- select item -->
-              <div class="row mt-3">
-                <div class="col-md-3 pt-2">
-                  <label for="items"><strong style="font-size: 15px; color: #5e5e5e;">Bakery Items:</strong></label>
-                </div>
-                <div class="col-md-9">
-                  <div class="form-group">
-                    <select class="form-control" id="items">
-                      <option>Select Option</option>
-                    </select>
+              <div class="col-md-4 my-4">
+                <div class="my-cardbody">
+                  <img
+                    src="./item_images/Chai Palmier.jpg"
+                    alt=""
+                    srcset=""
+                    style="height: 200px; width: 100%"
+                  />
+                  <div class="d-flex justify-content-between p-3">
+                    <p class="my-cardtitle p-0 m-0">Special title treatment</p>
+                    <h5 class="my-cardprice p-0 m-0">$50</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-0">
+                      <div class="quantity p-0 m-0">
+                        <a href="#" class="quantity__minus"><span>-</span></a>
+                        <input
+                          name="quantity"
+                          type="text"
+                          class="quantity__input"
+                          value="1"
+                        />
+                        <a href="#" class="quantity__plus"><span>+</span></a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                      <button class="btn btn-success btn-block">
+                        Add to cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- item image -->
-              <img src="./item_images/Almond Amaretto Concha.jpg" id="item-image" alt="" class="rounded mt-3"
-                style="width: 100%; height: 300px;">
-              <!-- title / price -->
-              <div class="d-flex mt-1 mb-1 justify-content-between mt-3">
-                <h6 id="item-title">Almond Amaretto Concha</h6>
-                <h6 id="item-price" class="m-0">$5</h6>
-              </div>
-              <!-- weight / cart quantity -->
-              <div class="d-flex mt-1 mb-1 justify-content-between mt-3">
-                <p id="item-weight">
-                  This item weight is .35 pounds
-                </p>
-                <div class="quantity p-0 m-0">
-                  <a href="#" class="quantity__minus"><span>-</span></a>
-                  <input name="quantity" type="text" class="quantity__input" value="1">
-                  <a href="#" class="quantity__plus"><span>+</span></a>
+              <div class="col-md-4 my-4">
+                <div class="my-cardbody">
+                  <img
+                    src="./item_images/Chai Palmier.jpg"
+                    alt=""
+                    srcset=""
+                    style="height: 200px; width: 100%"
+                  />
+                  <div class="d-flex justify-content-between p-3">
+                    <p class="my-cardtitle p-0 m-0">Special title treatment</p>
+                    <h5 class="my-cardprice p-0 m-0">$50</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-0">
+                      <div class="quantity p-0 m-0">
+                        <a href="#" class="quantity__minus"><span>-</span></a>
+                        <input
+                          name="quantity"
+                          type="text"
+                          class="quantity__input"
+                          value="1"
+                        />
+                        <a href="#" class="quantity__plus"><span>+</span></a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                      <button class="btn btn-success btn-block">
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- User Details -->
-              <div class="mt-3">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                </div>
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="Enter Address">
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone" placeholder="Enter Phone">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter Email">
+              <div class="col-md-4 my-4">
+                <div class="my-cardbody">
+                  <img
+                    src="./item_images/Chai Palmier.jpg"
+                    alt=""
+                    srcset=""
+                    style="height: 200px; width: 100%"
+                  />
+                  <div class="d-flex justify-content-between p-3">
+                    <p class="my-cardtitle p-0 m-0">Special title treatment</p>
+                    <h5 class="my-cardprice p-0 m-0">$50</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-0">
+                      <div class="quantity p-0 m-0">
+                        <a href="#" class="quantity__minus"><span>-</span></a>
+                        <input
+                          name="quantity"
+                          type="text"
+                          class="quantity__input"
+                          value="1"
+                        />
+                        <a href="#" class="quantity__plus"><span>+</span></a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                      <button class="btn btn-success btn-block">
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- place order button -->
-              <div>
-                <button class="btn button-primary btn-block" type="button">Place Order</button>
-              </div>
+              <!-- end cart -->
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- End Section 3 -->
-    <!-- Footer -->
-    <footer id="footer"
-      class="page-footer page-footer-corporate section-lg section-lg--inset-bottom-60 bg-gray-dark text-left">
-      <div class="container-wide container-fluid">
-        <div class="row justify-content-sm-center row-40">
-          <div style="position: relative; margin: 7%;" class="col-md-6 col-xl-4"><a class="brand" href="index.html"><img
-                src="assets/img/pan-and-coffee-logo-footer.png" width="270" height="150"
-                alt="Pan & Coffee bakery and coffee shop"></a>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <h6 style="font-family: 'Baskervville',serif">Contact Information</h6>
-            <div class="contact-info">
-              <div class="unit flex-row unit-spacing-xxs">
-                <div class="unit-left"><span class="icon icon-sm mdi mdi-map-marker icon-primary"></span></div>
-                <div class="unit-body">
-                  <p>19298 Stone Oak Parkway suite 1101. San Antonio, TX 78258</p>
+      </section>
+      <!-- End Section 3 -->
+      <!-- Footer -->
+      <footer
+        id="footer"
+        class="page-footer page-footer-corporate section-lg section-lg--inset-bottom-60 bg-gray-dark text-left"
+      >
+        <div class="container-wide container-fluid">
+          <div class="row justify-content-sm-center row-40">
+            <div
+              style="position: relative; margin: 7%"
+              class="col-md-6 col-xl-4"
+            >
+              <a class="brand" href="index.html"
+                ><img
+                  src="assets/img/pan-and-coffee-logo-footer.png"
+                  width="270"
+                  height="150"
+                  alt="Pan & Coffee bakery and coffee shop"
+              /></a>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h6 style="font-family: 'Baskervville', serif">
+                Contact Information
+              </h6>
+              <div class="contact-info">
+                <div class="unit flex-row unit-spacing-xxs">
+                  <div class="unit-left">
+                    <span
+                      class="icon icon-sm mdi mdi-map-marker icon-primary"
+                    ></span>
+                  </div>
+                  <div class="unit-body">
+                    <p>
+                      19298 Stone Oak Parkway suite 1101. San Antonio, TX 78258
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="unit flex-row unit-spacing-xxs">
-                <div class="unit-left"><span class="icon icon-sm mdi mdi-calendar-clock icon-primary"></span></div>
-                <div class="unit-body">
-                  <p><b>Monday to Friday</b></p>
-                  <p style="font-size: 12px">7:00 am to 3:00 pm</p>
-                  <p><b>Saturday & Sunday</b></p>
-                  <p style="font-size: 12px">8:00 am to 3:00 pm</p>
+                <div class="unit flex-row unit-spacing-xxs">
+                  <div class="unit-left">
+                    <span
+                      class="icon icon-sm mdi mdi-calendar-clock icon-primary"
+                    ></span>
+                  </div>
+                  <div class="unit-body">
+                    <p><b>Monday to Friday</b></p>
+                    <p style="font-size: 12px">7:00 am to 3:00 pm</p>
+                    <p><b>Saturday & Sunday</b></p>
+                    <p style="font-size: 12px">8:00 am to 3:00 pm</p>
+                  </div>
                 </div>
-              </div>
-              <div class="unit flex-row unit-spacing-xxs">
-                <div class="unit-left"><span class="icon icon-sm mdi mdi-phone icon-primary"></span></div>
-                <div class="unit-body">
-                  <p>(210) 756-7312</p>
+                <div class="unit flex-row unit-spacing-xxs">
+                  <div class="unit-left">
+                    <span
+                      class="icon icon-sm mdi mdi-phone icon-primary"
+                    ></span>
+                  </div>
+                  <div class="unit-body">
+                    <p>(210) 756-7312</p>
+                  </div>
                 </div>
-              </div>
-              <div class="unit flex-row unit-spacing-xxs">
-                <div class="unit-left"><span class="icon icon-sm mdi mdi-email-outline icon-primary"></span></div>
-                <div class="unit-body">
-                  <p>hi@panandcoffeeusa.com</p>
+                <div class="unit flex-row unit-spacing-xxs">
+                  <div class="unit-left">
+                    <span
+                      class="icon icon-sm mdi mdi-email-outline icon-primary"
+                    ></span>
+                  </div>
+                  <div class="unit-body">
+                    <p>hi@panandcoffeeusa.com</p>
+                  </div>
                 </div>
+                <!--<ul class="list-inline list-inline-12 list-inline-gray-lighter">-->
+                <!--<li><a class="icon icon-sm-mod-20 fa fa-facebook-f" href="#"></a></li>-->
+                <!--<li><a class="icon icon-sm-mod-20 fa fa-twitter" href="#"></a></li>-->
+                <!--<li><a class="icon icon-sm-mod-20 fa fa-instagram" href="#"></a></li>-->
+                <!--<li><a class="icon icon-sm-mod-20 fa fa-linkedin" href="#"></a></li>-->
+                <!--</ul>-->
               </div>
-              <!--<ul class="list-inline list-inline-12 list-inline-gray-lighter">-->
-              <!--<li><a class="icon icon-sm-mod-20 fa fa-facebook-f" href="#"></a></li>-->
-              <!--<li><a class="icon icon-sm-mod-20 fa fa-twitter" href="#"></a></li>-->
-              <!--<li><a class="icon icon-sm-mod-20 fa fa-instagram" href="#"></a></li>-->
-              <!--<li><a class="icon icon-sm-mod-20 fa fa-linkedin" href="#"></a></li>-->
-              <!--</ul>-->
             </div>
           </div>
+          <div class="privacy-wrap" style="text-align: center">
+            <p class="rights">
+              <span>&copy;&nbsp;</span><span class="copyright-year"></span
+              ><span>&nbsp;</span
+              ><span style="color: #d6d1c4; font-weight: bold"
+                >Pan & Coffee</span
+              ><span>.&nbsp;</span><span>All Rights Reserved.</span
+              ><span>&nbsp;</span
+              ><a href="privacy-policy.html" style="font-weight: bold"
+                >Privacy Policy</a
+              >
+            </p>
+            <p style="font-size: 12px; color: #6c757d">
+              Powered by:
+              <a href="https://www.mogarsoft.com/" target="_blank"
+                >www.mogarsoft.com</a
+              >
+            </p>
+          </div>
         </div>
-        <div class="privacy-wrap" style="text-align: center">
-          <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span
-              style="color: #d6d1c4; font-weight: bold">Pan & Coffee</span><span>.&nbsp;</span><span>All Rights
-              Reserved.</span><span>&nbsp;</span><a href="privacy-policy.html" style="font-weight: bold">Privacy
-              Policy</a>
-          </p>
-          <p style="font-size: 12px; color: #6c757d">Powered by: <a href="https://www.mogarsoft.com/"
-              target="_blank">www.mogarsoft.com</a></p>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer -->
-  </div>
-  <div class="snackbars" id="form-output-global"></div>
-  <script src="js/core.min.js"></script>
-  <script src="js/script.js"></script>
-  <script>
-    $(Document).ready(function () {
-
-      // quantity manage
-      const minus = $('.quantity__minus');
-      const plus = $('.quantity__plus');
-      const input = $('.quantity__input');
-      minus.click(function(e) {
-        e.preventDefault();
-        var value = input.val();
-        if (value > 1) {
-          value--;
-        }
-        input.val(value);
-      });
-      
-      plus.click(function(e) {
-        e.preventDefault();
-        var value = input.val();
-        value++;
-        input.val(value);
-      })
-
-      $.getJSON('http://127.0.0.1:5500/items.json', function (data) {
-        var options = "";
-        $.each(data.items, function(i, item) {
-          options += '<option value="'+ item.id +'">'+item.title+'</option>';
+      </footer>
+      <!-- End Footer -->
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      $(Document).ready(function () {
+        // quantity manage
+        const minus = $(".quantity__minus");
+        const plus = $(".quantity__plus");
+        const input = $(".quantity__input");
+        minus.click(function (e) {
+          e.preventDefault();
+          var value = input.val();
+          if (value > 1) {
+            value--;
+          }
+          input.val(value);
         });
-        $('#items').html("");
-        $('#items').html(options);
-      });
-      
-      $('#items').on('change', function(){
-        var id = $(this).val();
-        $.getJSON('http://127.0.0.1:5500/items.json', function (data) {
-          $.each(data.items, function(i, item) {
-            if(item.id == id){
-              $('#item-title').text(item.title);
-              $('#item-image').attr('src', item.images);
-              $('#item-price').text('$'+item.price);
-              $('#item-weight').text('This item weight is '+item.weight+' pounds');
-            }
+
+        plus.click(function (e) {
+          e.preventDefault();
+          var value = input.val();
+          value++;
+          input.val(value);
+        });
+
+        $.getJSON("http://127.0.0.1:5500/items.json", function (data) {
+          var options = "";
+          $.each(data.items, function (i, item) {
+            options +=
+              '<option value="' + item.id + '">' + item.title + "</option>";
+          });
+          $("#items").html("");
+          $("#items").html(options);
+        });
+
+        $("#items").on("change", function () {
+          var id = $(this).val();
+          $.getJSON("http://127.0.0.1:5500/items.json", function (data) {
+            $.each(data.items, function (i, item) {
+              if (item.id == id) {
+                $("#item-title").text(item.title);
+                $("#item-image").attr("src", item.images);
+                $("#item-price").text("$" + item.price);
+                $("#item-weight").text(
+                  "This item weight is " + item.weight + " pounds"
+                );
+              }
+            });
           });
         });
-        
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

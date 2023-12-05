@@ -15601,17 +15601,19 @@ html:not(.ie-11):not(.ie-10) .countdown-circle {
 	align-items: center;
 	justify-content: end;
 	padding: 0;
+	width: 100%;
   }
   .quantity__minus,
   .quantity__plus {
 	display: block;
 	width: 30px;
-	height: 30px;
+	height: 38px;
 	margin: 0;
 	background: #2d2926;
 	text-decoration: none;
 	text-align: center;
-	line-height: 30px;
+	line-height: 38px;
+	width: 30%;
   }
   .quantity__minus:hover,
   .quantity__plus:hover {
@@ -15625,8 +15627,8 @@ html:not(.ie-11):not(.ie-10) .countdown-circle {
 	border-radius: 0 3px 3px 0;
   }
   .quantity__input {
-	width: 40px;
-	height: 30px;
+	width: 40%;
+	height: 38px;
 	margin: 0;
 	padding: 0;
 	text-align: center;
