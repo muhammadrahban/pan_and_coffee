@@ -89,14 +89,14 @@
                                 <h5 class="my-cardprice p-0 m-0">$50</h5>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 pr-0">
+                                <div class="col-md-6 pr-md-0">
                                     <div class="quantity p-0 m-0">
                                         <a href="#" class="quantity__minus"><span>-</span></a>
                                         <input name="quantity" type="text" class="quantity__input" value="1" />
                                         <a href="#" class="quantity__plus"><span>+</span></a>
                                     </div>
                                 </div>
-                                <div class="col-md-6 pl-0">
+                                <div class="col-md-6 pl-md-0">
                                     <button class="btn btn-success btn-block">
                                         Add to cart
                                     </button>

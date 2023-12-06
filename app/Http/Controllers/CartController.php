@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -9,21 +10,13 @@ class CartController extends Controller
     public function index()
     {
         $cartItems  = session()->get('cart', []);
-        $currency   = session()->get('currency');
-        $ids = array_keys($cartItems);
-        $foundItems = victim::whereIn('id', $ids);
-        $count      = $foundItems->count();
-        $foundItems = $foundItems->get();
-        $initial_amount = 300000;
-        foreach ($foundItems as $key => $value) {
-            if ($currency != 'PKR') {
-                $amount = $this->currency($initial_amount, 'PKR', $currency);
-            } else {
-                $amount = $initial_amount;
-            }
-            $foundItems[$key]['price']  = $amount;
+        $arrayCart = [];
+        foreach ($cartItems as $key => $value) {
+            $products               = Product::where('id', $key)->first();
+            $products['quantity']   = $value;
+            array_push($arrayCart, $products);
         }
-        return view('web.cart.cart', compact('foundItems', 'count'));
+        return response()->json(['data' => $products]);
     }
 
     public function store(Request $request)
@@ -49,12 +42,12 @@ class CartController extends Controller
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
-        return redirect(route('cart.index'))->with('success', 'Items removed from cart');
+        return response()->json(['message' => 'Items removed from cart']);
     }
 
     public function clearCart()
     {
         session()->forget('cart');
-        return redirect('/cart')->with('success', 'Cart cleared');
+        return response()->json(['message' => 'Cart cleared']);
     }
 }

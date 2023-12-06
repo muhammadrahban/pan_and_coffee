@@ -39,6 +39,7 @@ $(Document).ready(function () {
             },
             success: function (response) {
                 console.log(response);
+                window.location.reload();
             },
             error: function (error) {
                 console.log(error);

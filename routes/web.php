@@ -25,6 +25,7 @@ Route::get('/privacy-policy', [StaticController::class, 'privacyPolicy'])->name(
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/cart-list', [CartController::class, 'index'])->name('cart.index');
 Route::post('/add-to-cart', [CartController::class, 'store'])->name('cart.store');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checout.index');
 

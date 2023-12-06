@@ -16943,7 +16943,7 @@ body.open .cart {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: 70px 0;
+    padding: 10px 0;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -16971,7 +16971,10 @@ body.open .cart {
 }
 
 .cart__product {
-    display: none;
+    /* display: none; */
+    background-color: #dbdbdb;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
 }
 
 .cart__empty {
