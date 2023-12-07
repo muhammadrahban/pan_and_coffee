@@ -1,0 +1,8 @@
+[17-Jun-2022 04:22:16 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[30-Jun-2022 16:07:57 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[05-Jul-2022 14:25:44 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[07-Jul-2022 17:49:13 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[23-Jul-2022 10:00:24 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[24-Jul-2022 22:11:29 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[09-Sep-2022 19:56:03 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
+[13-Sep-2022 12:45:29 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Events\Dispatchable' not found in /home/demo/public_html/chorespaws/app/Events/SendAction.php on line 13
