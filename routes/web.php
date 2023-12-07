@@ -25,8 +25,13 @@ Route::get('/privacy-policy', [StaticController::class, 'privacyPolicy'])->name(
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+// cart
 Route::get('/cart-list', [CartController::class, 'index'])->name('cart.index');
 Route::post('/add-to-cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart-remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+// checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checout.index');
+Route::post('/checkout-create', [CheckoutController::class, 'store'])->name('checout.create');
 
 

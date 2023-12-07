@@ -16972,9 +16972,13 @@ body.open .cart {
 
 .cart__product {
     /* display: none; */
+}
+
+.products {
     background-color: #dbdbdb;
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black;
+    margin-bottom: 5px;
 }
 
 .cart__empty {

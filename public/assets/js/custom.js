@@ -64,6 +64,30 @@ $(Document).ready(function () {
     }
 
     function openCart() {
+        $.ajax({
+            url: '/cart-list',
+            method: 'GET',
+            success: function (response) {
+                if(response.data.length > 0){
+                    $('.js-cart-empty').addClass('hide');
+                }
+                $('.js-cart-product-template').html();
+                response.data.forEach(function(item){
+                    var data = '<div class="d-flex p-2 align-items-center products">';
+                        data += '<img src="'+ item.image +'" style="width: 50px; height: 50px; border-radius: 50%;">';
+                        data += '<div class="d-flex flex-column pl-1" style="width: 70%">';
+                        data += '<h4 class="m-0 p-0" style="font-size:15px;">'+ item.title +'</h4>';
+                        data += '<p class="m-0 p-0">'+ item.quantity +' x $'+ (item.price * item.quantity) +'</p>';
+                        data += '</div>';
+                        data += '<button class="btn js-remove-product" data-id="'+item.id+'" style="color: rgb(231, 176, 176)">X</button>';
+                        data += '</div>';
+                    $('.js-cart-product-template').append(data);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
         cartOpen = true;
         $('body').addClass('open');
     }
@@ -84,11 +108,19 @@ $(Document).ready(function () {
 
     function removeProduct(e) {
         e.preventDefault();
-        numberOfProducts--;
-        $(this).closest('.js-cart-product').hide(250);
-        if (numberOfProducts == 0) {
-            $('.js-cart-empty').removeClass('hide');
-        }
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/cart-remove/'+id,
+            method: 'GET',
+            success: function (response) {
+                console.log(response);
+                $(this).closest('.products').remove();
+                window.location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     }
 
 });

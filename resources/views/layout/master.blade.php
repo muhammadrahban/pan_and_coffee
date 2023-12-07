@@ -114,35 +114,11 @@
         {{-- start cart --}}
 
         <aside class="cart js-cart">
-            {{-- <div class="cart__header">
-                <h1 class="cart__title">Shopping cart</h1>
-                <p class="cart__text">
-                    <a class="button button--light js-toggle-cart" href="#" title="Close cart">
-                        Close cart
-                    </a>
-                </p>
-            </div> --}}
             <div class="cart__products js-cart-products">
-                <p class="cart__empty js-cart-empty hide">
+                <p class="cart__empty js-cart-empty">
                     Add a product to your cart
                 </p>
                 <div class="cart__product js-cart-product-template">
-                    {{-- <article class="js-cart-product">
-                        <h1>Product title</h1>
-                        <p>
-                            <a class="js-remove-product" href="#" title="Delete product">
-                                Delete product
-                            </a>
-                        </p>
-                    </article> --}}
-                    <div class="d-flex p-2 align-items-center">
-                        <img src="{{asset('assets/item_images/Chai Palmier.jpg')}}" style="width: 50px; height: 50px; border-radius: 50%;">
-                        <div class="d-flex flex-column pl-1" style="width: 70%">
-                            <h4 class="m-0 p-0">title</h4>
-                            <p class="m-0 p-0">1 x $5</p>
-                        </div>
-                        <button class="btn js-remove-product" style="color: rgb(231, 176, 176)">X</button>
-                    </div>
                 </div>
             </div>
             <div class="cart__footer">

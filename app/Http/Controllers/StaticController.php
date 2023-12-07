@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class StaticController extends Controller
@@ -19,7 +20,8 @@ class StaticController extends Controller
     }
 
     public function store() {
-        return view('store');
+        $products   = Product::all();
+        return view('store', compact('products'));
     }
 
     public function privacyPolicy() {

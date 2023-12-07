@@ -16,7 +16,7 @@ class CartController extends Controller
             $products['quantity']   = $value;
             array_push($arrayCart, $products);
         }
-        return response()->json(['data' => $products]);
+        return response()->json(['data' => $arrayCart]);
     }
 
     public function store(Request $request)
