@@ -51,7 +51,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                        <label for="email">Email </label>
                         <input type="email" class="form-control" name="email" placeholder="you@example.com">
                         @error('email')
                             <div class="invalid-feedback">
@@ -59,22 +59,42 @@
                             </div>
                         @enderror
                     </div>
-
                     <div class="mb-3">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="1234 Main St" required>
-                        @error('address')
+                        <label for="phone">Phone Number </label>
+                        <input type="text" class="form-control" name="phone" placeholder="+18021234567">
+                        @error('phone')
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                Please enter a valid phone number for shipping updates.
                             </div>
                         @enderror
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9 mb-3">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" name="address" placeholder="1234 Main St" required>
+                            @error('address')
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" placeholder="Houston" required>
+                            @error('city')
+                                <div class="invalid-feedback">
+                                    Please enter your shipping City.
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-5 mb-3">
                             <label for="country">Country</label>
                             <select class="custom-select d-block w-100" name="country" required>
                                 <option value="">Choose...</option>
-                                <option>United States</option>
+                                <option value="US">United States</option>
                             </select>
                             @error('country')
                                 <div class="invalid-feedback">

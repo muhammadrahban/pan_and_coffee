@@ -522,9 +522,9 @@ h3+img {
     margin-top: 35px;
 }
 
-.row+.row {
+/* .row+.row {
     margin-top: 35px;
-}
+} */
 
 @media (min-width: 1200px) {
     *+.rd-form {
@@ -535,9 +535,9 @@ h3+img {
         margin-top: 60px;
     }
 
-    .row+.row {
+    /* .row+.row {
         margin-top: 60px;
-    }
+    } */
 }
 
 *+p {
@@ -896,9 +896,9 @@ h6+.twitter {
     margin-top: 60px;
 }
 
-.row+.row {
+/* .row+.row {
     margin-top: 60px;
-}
+} */
 
 .container+.hr-custom {
     margin-top: 22px;
@@ -1397,9 +1397,9 @@ h6+.twitter {
         margin-top: 120px;
     }
 
-    .row+.row {
+    /* .row+.row {
         margin-top: 120px;
-    }
+    } */
 
     .list-marked-wrap+.list-index-wrap {
         margin-top: 120px;

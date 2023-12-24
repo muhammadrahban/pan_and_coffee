@@ -13,6 +13,7 @@ class Order extends Model
         'user_id',
         'track_number',
         'address',
+        'parcel_image',
         'quantity',
         'status',
         'payment_status',
