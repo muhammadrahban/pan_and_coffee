@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
-                <form action="{{route('checout.create')}}" method="POST">
+                <form action="{{route('checout.create')}}" method="POST" id="payment-form">
                     @csrf
                     <div class="mb-3">
                         <label for="full_name">Full name</label>
@@ -222,6 +222,14 @@
                             @enderror
                         </div>
                     </div>
+                    {{-- <div class="row">
+                        <label for="card-element">Credit or debit card</label>
+                        <div id="card-element">
+                        <!-- a Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- Used to display form errors -->
+                        <div id="card-errors"></div>
+                    </div> --}}
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
                 </form>

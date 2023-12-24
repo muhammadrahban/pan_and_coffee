@@ -6,7 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    {{-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js https://js.stripe.com/v3/;"> --}}
+    {{-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'nonce-YourGeneratedNonce' https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js https://js.stripe.com/v3/;"> --}}
+    {{-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-1AB98AA91DBFCBA3BC5537B968160671FEE73896B53EF31384F6AEB93D48862A';"> --}}
+
     <!-- Meta Descripción -->
     <meta name="Pan & Coffee"
         content="We want you to experience the love and taste of homemade meals and drinks, made with sustainable, natural and organic products.">
@@ -200,9 +204,14 @@
         <!-- End Footer -->
     </div>
     <div class="snackbars" id="form-output-global"></div>
+    <!-- Stripe JS -->
     <script src="{{ asset('assets/js/core.min.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <!-- STRIPE File -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('assets/js/charge.js') }}" nonce="YourGeneratedNonce"></script>
 </body>
 
 </html>
