@@ -6,9 +6,10 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\User;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class CheckoutController extends Controller
 {
@@ -28,7 +29,7 @@ class CheckoutController extends Controller
     {
         $data = $request->validate([
             "full_name"         => 'required',
-                // "email"             => 'required|email|exists:users,email',
+            "email"             => 'required|email', //|exists:users,email
             "address"           => 'required',
             "country"           => 'required',
             "state"             => 'required',
@@ -37,30 +38,46 @@ class CheckoutController extends Controller
             "zip"               => 'required',
             "cc_name"           => 'required',
             "cc_number"         => 'required',
-            "cc_expiration"     => 'required',
-            "cc_cvv"            => 'required'
+            "cc_month"          => 'required',
+            "cc_year"           => 'required',
+            "cc_cvv"            => 'required',
+            "stripeToken"       => 'required'
         ]);
 
+        $cartItems      = session()->get('cart', []);
+        $total_quantity = 0;
+        $total_amount   = 0;
+
+        // Create Auth Token
+        $this->createAuthToken($request);
+
         // Address Varification Code by UPS
-        // $varifyAddress = $this->varifyAddress($request);
-        // $varifyAddress = json_decode($varifyAddress);
-        // if (!($varifyAddress->XAVResponse ?? null) || $varifyAddress->XAVResponse->Response->ResponseStatus->Code != "1") {
-        //     return "something went wrong";
-        //     // return $varifyAddress;
-        // }
+        $varifyAddress = $this->varifyAddress($request);
+        $varifyAddress = json_decode($varifyAddress);
+        if (!($varifyAddress->XAVResponse ?? null) || $varifyAddress->XAVResponse->Response->ResponseStatus->Code != "1") {
+            return back()->with("error", "Your Address Is Invalid for UPS!");
+        }
         // return $varifyAddress;
+
+        // Stripe Amount
+        $stripe_total_amount = 0;
+        foreach ($cartItems as $key => $value) {
+            $products               = Product::where('id', $key)->first();
+            $stripe_total_amount   += ($value * $products->price);
+        }
+        $this->StripePaymant($request, $stripe_total_amount);
 
         // Shipping Order Code by UPS
         $shipping = $this->shipping($request);
         $shipping = json_decode($shipping);
 
         if(!($shipping->ShipmentResponse ?? null) || $shipping->ShipmentResponse->Response->ResponseStatus->Code != "1"){
-            return "something went wrong";
+            return back()->with("error", "UPS Can't accept this Order Please try leter!");
         }
-        $shipping = $shipping->ShipmentResponse->Response;
+        $shipping       = $shipping->ShipmentResponse;
         $trackingNumber = $shipping->ShipmentResults->PackageResults->TrackingNumber;
         $shippingImage  = $shipping->ShipmentResults->PackageResults->ShippingLabel->GraphicImage;
-        return $shipping;
+        // return $shipping;
 
         $data = $request->all();
 
@@ -72,10 +89,6 @@ class CheckoutController extends Controller
             'address'       => $data['address'] . ', ' . $data['state'] . ', ' . $data['city'] . ' ' . $data['zip'] . ', ' . $data['country'],
             'password'      => bcrypt('abcd1234')
         ]);
-
-        $cartItems      = session()->get('cart', []);
-        $total_quantity = 0;
-        $total_amount   = 0;
 
         $order                  = Order::create([
             'user_id'           => $user->id,
@@ -108,9 +121,9 @@ class CheckoutController extends Controller
 
     private function varifyAddress($request)
     {
-        $token = config('app.USP_ACCESS_TOKEN');
-        $version = 'v1';
-        $requestOption = 1;
+        $token          = session()->get('access_token', [])['access_token'] ?? config('app.USP_ACCESS_TOKEN');
+        $version        = 'v1';
+        $requestOption  = 1;
 
         $query = [
             "regionalrequestindicator" => false,
@@ -141,26 +154,7 @@ class CheckoutController extends Controller
         }
     }
 
-    private function refreshToken()
-    {
-        $payload = "grant_type=refresh_token&refresh_token=" . config('app.USP_KEY');
-        $authorizationHeader = base64_encode("Panandcoffee:Greatbread2020!");
-
-        $response = Http::withHeaders([
-            "Content-Type" => "application/x-www-form-urlencoded",
-            "Authorization" => "Basic " . $authorizationHeader,
-        ])
-            ->asForm()
-            ->post("https://wwwcie.ups.com/security/v1/oauth/refresh", ['data' => $payload]);
-
-        if ($response->failed()) {
-            echo "HTTP Error #:" . $response->status();
-        } else {
-            echo $response->body();
-        }
-    }
-
-    private function createAuthToken()
+    private function createAuthToken($request)
     {
         // Get values from the environment variables
         $clientId = env('UPS_CLIENT_ID');
@@ -188,16 +182,22 @@ class CheckoutController extends Controller
         curl_close($curl);
 
         if ($error) {
-            echo "cURL Error #:" . $error;
+            return false;
         } else {
-            echo $response;
+            $response       = json_decode($response);
+            $access_token   = $response->access_token;
+            session()->forget('access_token');
+            session()->get('access_token', []);
+            $cart['access_token']   = $response->access_token;
+            $request->session()->put('access_token', $cart);
+            return $access_token;
         }
     }
 
     private function shipping($request) {
-        $token = config('app.USP_ACCESS_TOKEN');
-        $version = 'v1';
-        $query = [
+        $token      = session()->get('access_token', [])['access_token'] ?? config('app.USP_ACCESS_TOKEN');
+        $version    = 'v1';
+        $query      = [
             "additionaladdressvalidation" => "string"
         ];
 
@@ -256,7 +256,7 @@ class CheckoutController extends Controller
                         "Description" => " ",
                         "Packaging" => [
                             "Code" => "02",
-                            "Description" => "Nails"
+                            "Description" => "Pan&Coffee Bakery Cakes"
                         ],
                         "Dimensions" => [
                             "UnitOfMeasurement" => [
@@ -298,5 +298,16 @@ class CheckoutController extends Controller
         } catch (\Exception $e) {
             return "Error: " . $e->getMessage();
         }
+    }
+
+    private function StripePaymant($request, $amount) {
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        Charge::create ([
+            "amount" => $amount * 100,
+            "currency" => "usd",
+            "source" => $request->stripeToken,
+            "description" => "Order From Pan&Coffee."
+        ]);
     }
 }
