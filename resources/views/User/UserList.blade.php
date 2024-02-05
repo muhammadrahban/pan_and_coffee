@@ -20,7 +20,7 @@
         <div class="card-body">
             {{-- <h6 class="card-subtitle">Data table example</h6> --}}
             <div class="table-responsive">
-                <table id="myTablenanny" class="table table-striped border dataTable no-footer">
+                <table id="myTableuser" class="table table-striped border dataTable no-footer">
                     <thead>
                             <tr style="background-color: gray " class="text-white">
                                 <th>S.No</th>
@@ -84,7 +84,7 @@
                     });
         }
         $(function() {
-            $('#myTablenanny').DataTable({
+            $('#myTableuser').DataTable({
                 columnDefs:[
                     {
                         orderable: false,

@@ -4,12 +4,17 @@
     <div class="row page-titles"
         style="box-shadow: 0px 0px 14px 3px #cfcfcf; background: linear-gradient(45deg, rgb(241, 234, 234), transparent);border: 1px solid #cdcdcd;">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Order Management</h3>
+            <h3 class="text-themecolor">Order Detail</h3>
         </div>
         <div class="col-md-7 align-self-center text-end">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb justify-content-end">
                     <li><a class="breadcrumb-item active" href="{{ url('/') }}">Home</a></li>
+                    <li>
+                        <a class="breadcrumb-item active" href="{{ url()->previous() }}">Back</a>
+                    </li>
+                    <li><a type="button" title="update order status" class="breadcrumb-item active"
+                            onclick="updateModal({{ json_encode($orderDetails) }})">Update Status</a></li>
                 </ol>
             </div>
         </div>
@@ -18,68 +23,39 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive" style="font-size: small;">
-                <table id="myorderTable" class="table table-striped border dataTable no-footer">
+                <table id="myorTable" class="table table-striped border dataTable no-footer">
                     <thead>
                         <tr style="background-color: gray " class="text-white">
                             <th>S.No</th>
-                            <th>User Name</th>
-                            <th>Track Number</th>
-                            <th>Address</th>
+                            <th>Title</th>
+                            <th>Size</th>
+                            <th>Price</th>
                             <th>Quantity</th>
-                            <th>Status</th>
-                            <th>Payment Status</th>
-                            <th>Total Amount</th>
-                            <th>Action</th>
+                            <th>Description</th>
+                            <th>Image</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $num = 1; @endphp
-                        @foreach ($orders as $order)
+                        @foreach ($orderDetails->orderdetail as $detail)
                             <tr>
                                 <td>{{ $num++ }}</td>
+                                <td>{{ $detail->product->title ?? '-' }}</td>
+                                <td>{{ $detail->product->size ?? '-' }}</td>
+                                <td>{{ $detail->price ?? '-' }}</td>
+                                <td>{{ $detail->quantity ?? '-' }}</td>
+                                <td>{{ $detail->product->description ?? '-' }}</td>
                                 <td>
-                                    <a type="button" title="info" href="{{ route('user.info', $order->user->id) }}">
-                                        {{ $order->user->full_name ?? '-' }}
-                                    </a>
-                                </td>
-                                <td>{{ $order->track_number ?? '-' }}</td>
-                                <td>{{ $order->address ?? '-' }}</td>
-                                <td>{{ $order->quantity ?? '-' }}</td>
-                                <td>{{ $order->status ?? '-' }}</td>
-                                <td>{{ $order->payment_status ?? '-' }}</td>
-                                <td>{{ $order->total_amount ?? '-' }}</td>
-                                <td>
-                                    <a type="button" title="info" href="{{ route('order.detail', $order->id) }}">
-                                        <i class="fa fa-eye" style="font-size: 20px; color: rgb(71, 181, 196)"></i>
-                                    </a>
-                                    <a type="button" title="status update"
-                                        onclick="updateModal({{ json_encode($order) }})">
-                                        <i class="fa fa-pen" style="font-size: 20px; color: rgb(71, 181, 196)"></i>
+                                    <a href="{{ URL::asset($detail->product->image != null ? env('MEDIA_URL') . $detail->product->image : 'images/placeholder_blue_user.png') }}"
+                                        target="_blank">
+                                        <img src="{{ $detail->product->image != null ? env('MEDIA_URL') . $detail->product->image : asset('images/placeholder_blue_user.png') }}"
+                                            class="img-circle" width="50" style="height: 50px" />
                                     </a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="surveyModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content" style="font-size: small; width: 80%; margin-left: 14%;">
-                <div class="modal-header bg-primary text-white"
-                    style="background: linear-gradient(45deg, #01c0c8c2, transparent);">
-                    <h5 class="modal-title" id="surveyModalLabel">Order Detail</h5>
-                </div>
-                <div class="modal-body">
-                    <table class="table" id="surveyContent">
-                        <!-- General Donation details will be populated here -->
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
             </div>
         </div>
     </div>
@@ -110,14 +86,12 @@
             </div>
         </div>
     </div>
-
-
     <script>
         $(document).ready(function() {
-            $('#myorderTable').DataTable({
+            $('#myorTable').DataTable({
                 columnDefs: [{
                     orderable: false,
-                    "targets": 8
+                    "targets": 6
                 }]
             });
         });

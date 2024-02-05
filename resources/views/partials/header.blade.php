@@ -17,7 +17,7 @@
                             {{-- <img src="{{asset('images/Ridewise Logo.svg')}}" alt="homepage" class="dark-logo" /> --}}
                             <!-- Light Logo icon -->
                             {{-- <img src="{{asset('images/SPHF-donor-logo.png')}}" alt="homepage" class="light-logo" style="width: 118px;"/> --}}
-                            <img src="{{ asset('img/pan-and-coffee-brand.png') }}" alt="homepage" class="light-logo" style="width: 118px; filter: brightness(5);"/>
+                            <img src="{{ asset('img/pan-and-coffee-brand.png') }}" alt="homepage" class="light-logo" style="width: 109px; filter: brightness(5);margin-left: 4%;"/>
 
                         </b>
                         <!--End Logo icon -->

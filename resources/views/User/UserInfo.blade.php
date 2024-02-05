@@ -319,10 +319,13 @@
                                                 <td>{{ $order->payment_status ?? '-' }}</td>
                                                 <td>{{ $order->total_amount ?? '-' }}</td>
                                                 <td>
-                                                    <a type="button" title="info"
+                                                    {{-- <a type="button" title="info"
                                                         onclick="openSurveyModal({{ json_encode($order) }})">
                                                         <i class="fa fa-eye"
                                                             style="font-size: 20px; color: rgb(71, 181, 196)"></i>
+                                                    </a> --}}
+                                                    <a type="button" title="info" href="{{ route('order.detail', $order->id) }}">
+                                                        <i class="fa fa-eye" style="font-size: 20px; color: rgb(71, 181, 196)"></i>
                                                     </a>
                                                     <a type="button" title="status update"
                                                         onclick="updateModal({{ json_encode($order) }})">
@@ -541,12 +544,12 @@
             // Replace the AJAX request with your actual update logic
             $.ajax({
                 type: 'POST',
-                url: `/order/update-status/${orderId}`, // Replace with your actual update status endpoint
+                url: '{{ route('update.status', ['id' => ':orderId']) }}'.replace(':orderId', orderId),
                 data: {
                     status: status
                 },
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
                 },
                 success: function(response) {
                     toastr.options = {

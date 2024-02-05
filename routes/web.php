@@ -45,9 +45,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::prefix('product')->group(function () {
         Route::get('/index', [ProductController::class, 'index'])->name('product.index');
+        Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+        Route::post('/add', [ProductController::class, 'add'])->name('product.add');
+        Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
+        Route::delete('/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
     });
     Route::prefix('order')->group(function () {
         Route::get('/index', [orderController::class, 'index'])->name('order.index');
+        Route::get('/detail/{order}', [orderController::class, 'detail'])->name('order.detail');
         Route::post('/update-status/{id}', [orderController::class, 'update'])->name('update.status');
     });
 
